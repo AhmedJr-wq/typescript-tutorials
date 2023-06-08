@@ -2,11 +2,14 @@
 //Abstract classes are designed to be extended by other classes which can inherit their properties, methods, and behavior.
 
 import { HasId } from "./interfaces";
+
 abstract class Shape implements HasId {
 
     constructor(
-        public id: string
-    ) {}
+        public id: string,
+    ) {
+
+    }
 
     abstract calculateArea(): number;
   
@@ -58,4 +61,5 @@ abstract class Shape implements HasId {
   
   const rectangle = new Rectangle(4, 6);
   rectangle.display(); // Output: "The area of this shape is 24"
+
   
