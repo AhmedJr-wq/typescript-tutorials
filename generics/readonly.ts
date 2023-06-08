@@ -24,4 +24,19 @@ const frozen = freezeCourse({
     lessonCount: 100
 })
 
-frozen.title = 'ada' //immutable
+// frozen.title = 'ada' //immutable
+
+
+interface Lesson {
+    title: string,
+    seqNo: number
+}
+
+function freeze<T>(input :T): Readonly<T> {
+    return Object.freeze(input)
+}
+
+const freez = freeze({
+    title: 'New version of title',
+    seqNo: 100
+})
