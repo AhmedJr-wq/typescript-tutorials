@@ -39,3 +39,13 @@ function merge(obj1, obj2) {
 exports.merge = merge;
 var merged = merge(someData, moreData);
 console.log(merged);
+// PersonKeys is "name" | "age" | "address"
+function getProperty(obj, key) {
+    return obj[key];
+}
+var person = {
+    name: "John",
+    age: 30,
+    address: "123 Main St",
+};
+var nameValue = getProperty(person, "name");

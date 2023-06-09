@@ -62,3 +62,28 @@ export function merge<T extends object, U extends object>(obj1: T, obj2: U) {
 
 const merged = merge(someData, moreData)
 console.log(merged)
+
+
+//keyof operator returns the union of all known, string literal property names of a given type. 
+//It allows you to extract the keys of an object type and use them in various ways, such as defining generic constraints or accessing specific properties dynamically 
+
+interface Person {
+    name: string;
+    age: number;
+    address: string;
+  }
+  
+  type PersonKeys = keyof Person;
+  // PersonKeys is "name" | "age" | "address"
+  
+  function getProperty<T, K extends keyof T>(obj: T, key: K) {
+    return obj[key];
+  }
+  
+  const person: Person = {
+    name: "John",
+    age: 30,
+    address: "123 Main St",
+  };
+  
+  const nameValue = getProperty(person, "name");
