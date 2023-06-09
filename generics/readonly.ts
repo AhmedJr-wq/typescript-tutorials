@@ -40,3 +40,24 @@ const freez = freeze({
     title: 'New version of title',
     seqNo: 100
 })
+
+
+//Generic Functions with multiple generic parameters
+
+const someData = {
+    title: 'New version of title',
+    subtitle: 'New version of subtitle',
+    lessonCount: 100
+}
+
+const moreData = {
+    seqNo: 10,
+    price: 25
+}
+
+export function merge<T, U>(obj1: T, obj2: U) {
+    return Object.assign(obj1, obj2) as (T & U)
+}
+
+const merged = merge(someData, moreData)
+console.log(merged)
