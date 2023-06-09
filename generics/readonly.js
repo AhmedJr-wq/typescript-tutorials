@@ -49,3 +49,4 @@ var person = {
     address: "123 Main St",
 };
 var nameValue = getProperty(person, "name");
+console.log(nameValue);

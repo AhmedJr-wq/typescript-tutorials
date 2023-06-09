@@ -87,3 +87,4 @@ interface Person {
   };
   
   const nameValue = getProperty(person, "name");
+  console.log(nameValue)
