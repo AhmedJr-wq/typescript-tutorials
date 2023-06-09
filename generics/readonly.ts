@@ -86,5 +86,5 @@ interface Person {
     address: "123 Main St",
   };
   
-  const nameValue = getProperty(person, "name");
+  const nameValue = getProperty(person, "age");
   console.log(nameValue)

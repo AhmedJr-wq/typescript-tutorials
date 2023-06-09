@@ -48,5 +48,5 @@ var person = {
     age: 30,
     address: "123 Main St",
 };
-var nameValue = getProperty(person, "name");
+var nameValue = getProperty(person, "age");
 console.log(nameValue);
