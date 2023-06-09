@@ -32,7 +32,7 @@ interface Lesson {
     seqNo: number
 }
 
-function freeze<T>(input :T): Readonly<T> {
+function freeze<T extends object>(input :T): Readonly<T> {
     return Object.freeze(input)
 }
 
@@ -41,6 +41,7 @@ const freez = freeze({
     seqNo: 100
 })
 
+// const f = freeze(45)
 
 //Generic Functions with multiple generic parameters
 
@@ -55,9 +56,9 @@ const moreData = {
     price: 25
 }
 
-export function merge<T, U>(obj1: T, obj2: U) {
+export function merge<T extends object, U extends object>(obj1: T, obj2: U) {
     return Object.assign(obj1, obj2) as (T & U)
-}
+} //the extends keyword puts a constraint on the generic parameter for type safety 
 
 const merged = merge(someData, moreData)
 console.log(merged)

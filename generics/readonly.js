@@ -22,6 +22,7 @@ var freez = freeze({
     title: 'New version of title',
     seqNo: 100
 });
+// const f = freeze(45)
 //Generic Functions with multiple generic parameters
 var someData = {
     title: 'New version of title',
@@ -34,7 +35,7 @@ var moreData = {
 };
 function merge(obj1, obj2) {
     return Object.assign(obj1, obj2);
-}
+} //the extends keyword puts a constraint on the generic parameter for type safety 
 exports.merge = merge;
 var merged = merge(someData, moreData);
 console.log(merged);
