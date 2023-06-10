@@ -1,9 +1,9 @@
 export enum LoggingLevel {
-    ERROR = "ERROR",
-    INFO = "INFO",
-    WARN = "WARN",
-    DEBUG = "DEBUG",
-    TRACE = "TRACE"
+    ERROR, 
+    INFO,
+    WARN, 
+    DEBUG,
+    TRACE
 }
 
 const appMaxLoggingLevel = LoggingLevel.DEBUG
@@ -17,9 +17,18 @@ export function Log(level: LoggingLevel): MethodDecorator {
         propertyKey: string | symbol,
         descriptor: PropertyDescriptor
     ) => {
-        console.log('target', target)
-        console.log('propertyKey', propertyKey)
-        console.log('descriptor', descriptor)
+        
+        const originalMethod = descriptor.value
 
+        descriptor.value = function(...args: any[]) {
+
+            if(level <= appMaxLoggingLevel) {
+                console.log(`>> Log: ${String(propertyKey)}, ${JSON.stringify(args)}`)
+            }
+
+           return originalMethod.apply(this, args)
+        } //this value replaces the originalFunction with login capabilties
+         
+        return descriptor
     }
 }

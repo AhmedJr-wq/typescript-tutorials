@@ -9,16 +9,11 @@ import { LoggingLevel, Log } from "./methods"
 class DbService {
 
 
-    @Log(LoggingLevel.DEBUG) //login function to modify the save data method
+    @Log(LoggingLevel.DEBUG) //login function or method decorator to modify the save data method
     saveData(data: any) {
         console.log(`Saving data in the database...`)
     }
 }
 
 const db = new DbService()
-
-
-
-
-
 db.saveData({Hello: 'World'})
