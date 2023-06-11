@@ -7,8 +7,6 @@ if (result.error) {
     process.exit(1)
 }
 
-console.log(process.env.PORT)
-
 import * as express from 'express'
 import { root } from './routes/root'
 import { isInteger } from './utils'
@@ -23,12 +21,12 @@ function setupExpress() {
 
 function startServer() {
 
-    const portArg = process.argv[2]
-
     let port: number;
 
-    if (isInteger(portArg)) {
-        port = parseInt(portArg)
+    const portEnv = process.env.PORT
+
+    if (isInteger(portEnv)) {
+        port = parseInt(portEnv)
     }
 
     if (!port) {
