@@ -1,3 +1,16 @@
 
+import * as express from 'express'
+import { root } from './routes/root'
 
-console.log('Hello Ahmed')
+const app = express()
+
+function setupExpress() {
+    app.route('/').get(root)
+}
+
+function startServer() {
+
+}
+
+setupExpress()
+startServer()
